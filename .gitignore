@@ -1,0 +1,10 @@
+.vscode
+
+*.aux
+*.log
+*.out
+*.toc
+
+images/pogruzhatel.png
+
+*.pdf
