@@ -88,3 +88,71 @@
 \end{equation}
 
 \clearpage
+
+\section{Численное моделирование}
+
+Распишем равенство (\ref{eq:R}) более подробно. Через $m$ обозначим массу всей установки, через $x(t)$ - глубину
+погружения сваи, а через $t$ - время погружения сваи. Получаем:
+
+\begin{itemize}
+\item Согласно второму закону Ньютона $R = m\vec{a}$, где $m$ - масса и $\vec{a}$ - ускорение.
+\item $F_\text{тяж.} = mg$, где $g$ - ускорение свободного падения.
+\item $F_\text{лс} = S_\text{пс} h_i$, где $S_\text{пс}$ - площадь поперечного сечения сваи,
+$h_i(x(t), \xi$) - удельное лобовое сопротивление, $\xi$ - коэфициент условий работы грунта под нижним концом сваи.
+\item $F_\text{бс} = P x(t) f_i(\psi)$ - сила бокового сопротивления, представляющая собой произведение периметра сваи
+$P$, глубины погружения $x(t)$ и удельной силы бокового сопротивления $f_i(\psi)$, зависящей от типа грунта.
+\end{itemize}
+
+\noindent Таким образом получаем следующее дифференциальное уравнение второго порядка:
+
+\begin{equation}
+    \label{eq:main}
+    m\ddot{x} = F_\text{вибр. возд.} + mg + S_\text{пс} h_i(x(t), \xi) + P x(t) f_i(\psi)
+\end{equation}
+с начальным условием:
+\begin{equation}
+    x(0) = 0
+\end{equation}
+
+\subsection{Разностная схема}
+
+Рассмотрим разностную апроксимацию дифференциальных операторов $L_x = \dot{x}$ и $L_{xx} = \ddot{x}$ на равномерной
+сетке с шагом $h$:
+\begin{equation}
+    L_x = \frac{dx}{dt} = \frac{x(t + h) - x(t)}{h}
+\end{equation}
+\begin{equation}
+    \label{eq:lxx}
+    L_{xx} = \frac{d^2x}{dt^2} = \frac{\dot{x}(t + h) - \dot{x}(t)}{h} = \frac{x(t + h) - 2x(t) + x(t - h)}{h^2}
+\end{equation}
+Перепишем равенство \ref{eq:lxx} в виде:
+\begin{equation}
+    \label{eq:approximation}
+    \frac{x_{i+1} - 2x_i + x_{i-1}}{h^2},
+\end{equation}
+где $x_i = x(t_i), t_{i+1} = t_i + h$.
+
+~\
+
+\noindent Заменим $\ddot{x}$ в уравнении \ref{eq:main} разностной апроксимацией \ref{eq:approximation}:
+\begin{equation}
+    \begin{aligned}
+        m\frac{x_{i+1} - 2x_i + x_{i-1}}{h^2} = F_\text{вибр. возд.} + mg + S_\text{пс} h_i(x(t), \xi)+ P x(t) f_i(\psi)\\
+        x_{i+1} - 2x_i + x_{i-1} = \frac{h^2}{m}(F_\text{вибр. возд.} + mg + S_\text{пс} h_i(x(t), \xi) + P x(t) f_i(\psi))\\
+        x_{i+1} = 2x_i - x_{i-1} + \frac{h^2}{m}(F_\text{вибр. возд.} + mg + S_\text{пс} h_i(x(t), \xi) + P x(t) f_i(\psi))
+    \end{aligned}
+\end{equation}
+
+\subsection{Устойчивость}
+
+\clearpage
+
+\section{Результаты}
+
+\clearpage
+
+\addcontentsline{toc}{section}{Список литературы}
+
+\begin{thebibliography}{}
+    \bibitem{bib1} -
+\end{thebibliography}
