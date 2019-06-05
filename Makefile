@@ -20,5 +20,5 @@ all:
 
 clean:
 	rm *.aux *.log *.out *.toc *.pdf
-	rm images/pogruzhatel.png
+	rm images/pogruzhatel.png *.pdf
 	rm tp-output.*
