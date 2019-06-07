@@ -5,6 +5,11 @@
 *.out
 *.toc
 
+*.bbl
+*.bcf
+*.blg
+*.xml
+
 images/pogruzhatel.png
 
 *.pdf
