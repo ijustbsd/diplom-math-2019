@@ -14,6 +14,7 @@ all:
 	pdflatex diplom.tex
 	biber diplom
 	pdflatex diplom.tex
+	pdflatex diplom.tex
 	evince diplom.pdf &
 
 clean:
