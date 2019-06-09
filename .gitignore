@@ -5,6 +5,9 @@
 *.out
 *.toc
 
+*.nav
+*.snm
+
 *.bbl
 *.bcf
 *.blg
